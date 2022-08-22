@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController {
     
@@ -15,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var testImageView: UIImageView!
+    @IBOutlet weak var downloadButton: UIButton!
     
     
     // MARK: - IBActions
@@ -30,6 +33,9 @@ class ViewController: UIViewController {
     }
     @IBAction func deleteUserButtonAction(_ sender: Any) {
         deleteUser()
+    }
+    @IBAction func downloadButtonAction(_ sender: Any) {
+        downloadImage()
     }
     
     // MARK: - Life cycle ViewController Methods
@@ -124,6 +130,11 @@ class ViewController: UIViewController {
         self.nameLabel.text = user.name
         self.emailLabel.text = user.email
         self.idLabel.text = user.id?.description
+    }
+    
+    private func downloadImage() {
+        downloadButton.isHidden = true
+        testImageView.kf.setImage(with: URL(string: "https://files.carolus.raywenderlich.com/kcsverzlst4wl4p9ww563u7xl0ja?response_content_disposition=inline%3B+filename%3D%22path-ios-beginner%25402x.png%22%3B+filename%2A%3DUTF-8%27%27path-ios-beginner%25402x.png"))
     }
 
 }

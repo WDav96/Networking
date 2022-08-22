@@ -106,22 +106,44 @@
                                 </constraints>
                                 <color key="color" systemColor="systemIndigoColor"/>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IYr-Kv-Dhe">
+                                <rect key="frame" x="15" y="384.5" width="384" height="457.5"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0B-XW-mlF">
+                                <rect key="frame" x="146.5" y="599" width="121.5" height="28.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Download image">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="12"/>
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="downloadButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="laU-Kp-hmI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YBl-mF-oJB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="05L-DB-XFL"/>
+                            <constraint firstItem="IYr-Kv-Dhe" firstAttribute="top" secondItem="Pmn-eN-EO8" secondAttribute="bottom" constant="20" id="2s3-3G-PV2"/>
                             <constraint firstItem="Pmn-eN-EO8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="OC0-Ta-g9d"/>
                             <constraint firstItem="YBl-mF-oJB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="P2j-9g-vNR"/>
+                            <constraint firstItem="K0B-XW-mlF" firstAttribute="centerX" secondItem="IYr-Kv-Dhe" secondAttribute="centerX" id="Zb2-Xs-bc2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pmn-eN-EO8" secondAttribute="trailing" constant="15" id="a2y-Eg-go5"/>
+                            <constraint firstItem="IYr-Kv-Dhe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="aDL-vb-tqx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IYr-Kv-Dhe" secondAttribute="trailing" constant="15" id="dLT-xX-V4K"/>
                             <constraint firstItem="Pmn-eN-EO8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="eBW-9K-HyD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IYr-Kv-Dhe" secondAttribute="bottom" constant="20" id="ozN-0k-Gf3"/>
+                            <constraint firstItem="K0B-XW-mlF" firstAttribute="centerY" secondItem="IYr-Kv-Dhe" secondAttribute="centerY" id="tre-Xs-f1A"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="YBl-mF-oJB" id="X9f-aS-9Ii"/>
+                        <outlet property="downloadButton" destination="K0B-XW-mlF" id="yRe-Ga-ofE"/>
                         <outlet property="emailLabel" destination="0w3-in-083" id="784-0h-T7C"/>
                         <outlet property="idLabel" destination="vPD-13-YdX" id="eOh-cR-huG"/>
                         <outlet property="nameLabel" destination="A5e-Wo-zEs" id="xmZ-uU-vzH"/>
+                        <outlet property="testImageView" destination="IYr-Kv-Dhe" id="KBg-Bp-ZcS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
