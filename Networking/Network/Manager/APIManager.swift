@@ -49,7 +49,7 @@ final class APIManager {
     }
     
     func updateUser(id: Int, user: NewUser, onSuccess: @escaping (_ user: User) -> (), onFailure: @escaping (_ error: Error?) -> ()) {
-        let url = "\(baseUrl)users"
+        let url = "\(baseUrl)users/\(id)"
         
         let headers: HTTPHeaders = [.authorization(bearerToken: token)]
         
@@ -60,6 +60,20 @@ final class APIManager {
                 return
             }
             onSuccess(user)
+        }
+    }
+    
+    func deleteUser(id: Int, onSuccess: @escaping () -> (), onFailure: @escaping (_ error: Error?) -> ()) {
+        let url = "\(baseUrl)users/\(id)"
+        
+        let headers: HTTPHeaders = [.authorization(bearerToken: token)]
+        
+        AF.request(url, method: .delete, headers: headers).validate(statusCode: statusOk).response { response in
+            if let error = response.error {
+                onFailure(error)
+            } else {
+                onSuccess()
+            }
         }
     }
     

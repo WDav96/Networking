@@ -28,6 +28,9 @@ class ViewController: UIViewController {
     @IBAction func updateUserButtonAction(_ sender: Any) {
         updateUser()
     }
+    @IBAction func deleteUserButtonAction(_ sender: Any) {
+        deleteUser()
+    }
     
     // MARK: - Life cycle ViewController Methods
     
@@ -48,7 +51,7 @@ class ViewController: UIViewController {
     private func getUser(id: Int) {
         activityIndicator.startAnimating()
         
-        APIManager.shared.getUser(id: 3726) { user in
+        APIManager.shared.getUser(id: 4099) { user in
             self.activityIndicator.stopAnimating()
                 
             self.setupUser(user: user)
@@ -62,7 +65,7 @@ class ViewController: UIViewController {
     }
     
     private func addUser() {
-        let newUser = NewUser(name: "Wilson", email: "test02@gmail.com", gender: "Male", status: "Active")
+        let newUser = NewUser(name: "Test03", email: "test03@gmail.com", gender: "Male", status: "Active")
         
         activityIndicator.startAnimating()
         
@@ -84,10 +87,30 @@ class ViewController: UIViewController {
         
         activityIndicator.startAnimating()
         
-        APIManager.shared.updateUser(id: 3726, user: newUser) { user in
+        APIManager.shared.updateUser(id: 5182, user: newUser) { user in
             self.activityIndicator.stopAnimating()
             
             self.setupUser(user: user)
+            
+        } onFailure: { error in
+            self.activityIndicator.stopAnimating()
+            
+            self.nameLabel.text = error.debugDescription
+            
+        }
+    }
+    
+    private func deleteUser() {
+        activityIndicator.startAnimating()
+        
+        let id = 5182
+        
+        APIManager.shared.deleteUser(id: 5182) {
+            self.activityIndicator.stopAnimating()
+            
+            self.nameLabel.text = "El usuario con ID \(id) se ha borrado con éxito"
+            self.emailLabel.text = ""
+            self.idLabel.text = ""
             
         } onFailure: { error in
             self.activityIndicator.stopAnimating()
